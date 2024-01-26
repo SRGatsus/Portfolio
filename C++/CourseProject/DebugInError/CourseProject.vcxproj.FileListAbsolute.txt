@@ -1,0 +1,6 @@
+D:\CourseProject2\CourseProject\Debug\CourseProject.vcxproj.AssemblyReference.cache
+D:\CourseProject2\CourseProject\Debug\CourseProject.About.resources
+D:\CourseProject2\CourseProject\Debug\CourseProject.Mainh.resources
+D:\CourseProject2\CourseProject\Debug\CourseProject.Settings.resources
+D:\CourseProject2\CourseProject\Debug\CourseProject.vcxproj.GenerateResource.cache
+D:\CourseProject2\CourseProject\Debug\CourseProject.exe

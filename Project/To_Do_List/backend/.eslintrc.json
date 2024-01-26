@@ -1,0 +1,16 @@
+{
+    "env": {
+        "browser": false,
+        "es2021": true
+    },
+    "extends": ["@tinkoff/eslint-config/app"],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "project": ["./tsconfig.json"]
+    },
+    "rules": {
+
+    }
+}

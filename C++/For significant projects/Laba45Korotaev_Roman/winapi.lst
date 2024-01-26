@@ -1,0 +1,283 @@
+Microsoft (R) Macro Assembler Version 14.28.29337.0	    05/11/21 09:35:08
+Dekster.asm						     Page 1 - 1
+
+
+				.MODEL FLAT, C
+ 00000000			.data
+ 00000000 00000000			mass DD 0
+ 00000004 00000000			mass2 DD 0
+ 00000008 00000000			massRes DD 0
+ 0000000C 00000000			massRes2 DD 0
+ 00000010 00000000			massNode DD 0
+ 00000014 00000000			massNode2 DD 0
+ 00000018 00000000			fromPoint DD 0
+ 0000001C 00000000			xx DD 0
+ 00000020 00000000			xx2 DD 0
+ 00000024 00000000			xx3 DD 0
+ 00000028 00000000			xx4 DD 0
+ 0000002C 00000000			xx5 DD 0
+ 00000030 00000000			InPoint DD 0
+ 00000034 00000000			MatrixCount DD 0
+ 00000038 00000000			MatrixCountKD DD 0
+ 0000003C 00000000			minMas DD 0
+ 00000040 00000000			indexMin DD 0
+ 00000044 0000000A			bigNum DD 10
+ 00000048 00000000			 blb DD 0
+ 0000004C 00000000			ecx2 DD 0
+ 00000000			.CODE
+
+ 00000000			mul_v PROC mas: PTR DWORD,node: PTR DWORD, n: DWORD, a: DWORD, b: DWORD, res: PTR DWORD
+
+ 00000003  56				PUSH esi
+ 00000004  57				PUSH edi
+ 00000005  50				PUSH eax
+ 00000006  53				PUSH ebx
+ 00000007  51				PUSH ecx
+ 00000008  52				PUSH edx
+
+
+ 00000009  8B 7D 08			MOV edi, DWORD PTR mas
+ 0000000C  89 3D 00000000 R		MOV mass,DWORD PTR edi
+ 00000012  89 3D 00000004 R		MOV mass2,DWORD PTR edi
+					
+ 00000018  8B 75 0C			MOV esi, DWORD PTR node	
+ 0000001B  89 35 00000010 R		MOV massNode,DWORD PTR esi
+ 00000021  89 35 00000014 R		MOV massNode2,DWORD PTR esi
+					
+ 00000027  8B 4D 10			MOV ecx, DWORD PTR  n
+ 0000002A  89 0D 00000034 R		MOV MatrixCount,ecx
+ 00000030  A1 00000034 R		MOV eAX, MatrixCount
+ 00000035  F7 25 00000034 R		mul MatrixCount
+ 0000003B  A3 00000038 R		Mov MatrixCountKD,EAX
+ 00000040  8B 4D 14			MOV ecx, DWORD PTR a
+ 00000043  89 0D 00000018 R		MOV fromPoint,ecx
+
+ 00000049  8B 4D 18			MOV  ecx, DWORD PTR b
+ 0000004C  89 0D 00000030 R		MOV InPoint,ecx
+					
+ 00000052  8B 75 1C			MOV esi, DWORD PTR res	
+ 00000055  89 35 00000008 R		MOV massRes,DWORD PTR esi
+ 0000005B  89 35 0000000C R		MOV massRes2,DWORD PTR esi
+
+
+ 00000061			for_start:
+ 00000061  C7 05 00000048 R		mov blb,0
+	   00000000
+ 0000006B				for_loop:
+ 0000006B  C7 05 0000001C R			mov xx,4
+	   00000004
+ 00000075  A1 00000048 R			mov eax,blb
+ 0000007A  F7 25 0000001C R			mul xx
+ 00000080  A3 0000001C R			mov xx,eax
+ 00000085  8B 3D 00000010 R			MOV edi, DWORD PTR massNode
+ 0000008B  C7 04 07				MOV  DWORD PTR [edi+eax],0
+	   00000000
+ 00000092  A1 0000001C R			mov eax,xx
+ 00000097  8B 3D 00000008 R			MOV edi, DWORD PTR  massRes
+ 0000009D  C7 04 07				MOV DWORD PTR [edi+eax], 10
+	   0000000A
+ 000000A4  3B 0D 00000018 R			cmp ecx,DWORD PTR fromPoint
+ 000000AA  75 0D				JNE end_if
+ 000000AC  8B 3D 00000008 R			MOV edi, DWORD PTR  massRes
+ 000000B2  C7 04 07			MOV DWORD PTR [edi+eax], 0
+	   00000000
+					
+ 000000B9				end_if:
+ 000000B9  FF 05 00000048 R		inc blb
+ 000000BF  A1 00000048 R		mov eax,blb
+ 000000C4  3B 05 00000034 R		cmp eax,MatrixCount
+ 000000CA  75 9F			jnz for_loop
+ 000000CC				for_finish:
+
+ 000000CC				for_start2:
+ 000000CC  B9 00000000				mov ecx,0
+ 000000D1					for_loop2:
+ 000000D1  C7 05 0000003C R			mov minMas,10
+	   0000000A
+ 000000DB					for_start3:
+ 000000DB  C7 05 00000048 R				mov blb,0
+	   00000000
+ 000000E5							for_loop3:
+
+												
+ 000000E5  C7 05 0000001C R									mov xx,4
+	   00000004
+ 000000EF  A1 00000048 R									mov eax,blb
+ 000000F4  F7 25 0000001C R									mul xx
+ 000000FA  A3 0000002C R									mov xx5,eax
+ 000000FF  8B 3D 00000010 R							MOV edi, DWORD PTR massNode
+ 00000105  8B 04 07								MOV Eax, DWORD PTR [edi+eax]
+ 00000108  83 F8 00								cmp Eax,0
+ 0000010B  75 40								JNE end_if3
+ 0000010D  A1 0000002C R							MOV Eax,xx5
+ 00000112  8B 3D 00000008 R							MOV edi, DWORD PTR  massRes
+ 00000118  8B 04 07								MOV Eax,DWORD PTR [edi+Eax]
+ 0000011B  3B 05 0000003C R							cmp Eax,minMas
+ 00000121  73 2A								JNB end_if3
+ 00000123  A1 0000002C R							mov eax,xx5
+ 00000128  8B 3D 00000010 R							MOV edi, DWORD PTR massNode
+ 0000012E  C7 04 07								mov DWORD PTR [edi+eax],1
+	   00000001
+ 00000135  8B 3D 00000008 R							MOV edi, DWORD PTR  massRes
+ 0000013B  8B 04 07								MOV EAX,DWORD PTR [edi+eax]
+ 0000013E  A3 0000003C R							MOV minMas,EAX
+ 00000143  A1 00000048 R							mov eax,blb
+ 00000148  A3 00000040 R							MOV indexMin,eax
+ 0000014D  FF 05 00000048 R						end_if3:inc blb
+ 00000153  A1 00000048 R							mov Eax,blb
+ 00000158  39 05 00000034 R							cmp MatrixCount,EAX
+ 0000015E  75 85							jnz for_loop3
+ 00000160					for_finish3:
+ 00000160					for_start4:
+ 00000160  C7 05 00000048 R				mov blb,0
+	   00000000
+ 0000016A						for_loop4:
+ 0000016A  A1 00000048 R					mov eax,blb
+ 0000016F  C7 05 0000001C R					mov xx,4
+	   00000004
+ 00000179  F7 25 0000001C R					mul xx
+ 0000017F  A3 0000002C R					mov xx5,EAX;		[j]
+ 00000184  A1 00000040 R					mov EAX,indexMin
+ 00000189  F7 25 00000034 R					mul MatrixCount
+ 0000018F  03 05 00000048 R					add eax,blb
+ 00000195  C7 05 0000001C R					mov xx,4
+	   00000004
+ 0000019F  F7 25 0000001C R					mul xx
+ 000001A5  A3 00000024 R					mov xx3,EAX;		[index_min][j]
+ 000001AA  8B 3D 00000000 R					MOV edi, DWORD PTR mass
+ 000001B0  83 3C 07 00						cmp DWORD PTR [edi+EAX],0
+ 000001B4  74 75						Je end_if4
+ 000001B6  A1 0000002C R					mov EAX,xx5
+ 000001BB  8B 3D 00000010 R					MOV edi, DWORD PTR massNode
+ 000001C1  83 3C 07 01						cmp DWORD PTR [edi+EAX],1
+ 000001C5  74 64						JE end_if4
+ 000001C7  A1 00000040 R					mov EAX,indexMin
+ 000001CC  C7 05 0000001C R					mov xx,4
+	   00000004
+ 000001D6  F7 25 0000001C R					mul xx
+ 000001DC  A3 0000001C R					mov xx,EAX;			[index_min]
+ 000001E1  8B 3D 00000008 R					MOV edi, DWORD PTR  massRes
+ 000001E7  83 3C 07 0A						cmp DWORD PTR [edi+EAX],10
+ 000001EB  74 3E						JE end_if4
+ 000001ED  A1 0000002C R					mov eax,xx5
+ 000001F2  8B 3D 00000008 R						MOV edi, DWORD PTR  massRes
+ 000001F8  8B 14 07						mov edx,DWORD PTR [edi+eAX]
+ 000001FB  A1 00000024 R					mov eax,xx3
+ 00000200  8B 3D 00000000 R					MOV edi, DWORD PTR mass
+ 00000206  8B 04 07						mov eax ,DWORD PTR [edi+eax]
+ 00000209  3B C2						cmp eax,edx
+ 0000020B  73 1E						JNB end_if4
+ 0000020D  A1 0000002C R					mov eax,xx5
+ 00000212  8B 3D 00000008 R					MOV edi, DWORD PTR  massRes
+ 00000218  8B 14 07						mov edx,DWORD PTR [edi+eAX]
+ 0000021B  A1 00000024 R					mov eax,xx3
+ 00000220  8B 3D 00000000 R					MOV edi, DWORD PTR mass
+ 00000226  8B 04 07						mov eax ,DWORD PTR [edi+eax]
+ 00000229  8B D0						mov edx ,eax
+ 0000022B							end_if4:
+ 0000022B  FF 05 00000048 R					inc blb
+ 00000231  A1 00000048 R					mov Eax,blb
+ 00000236  39 05 00000034 R					cmp MatrixCount,EAX
+ 0000023C  0F 85 FFFFFF28					jnz for_loop4
+ 00000242					for_finish4:
+ 00000242  41				inc ecx
+ 00000243  A1 00000034 R		mov eax,MatrixCount
+ 00000248  A3 00000024 R		mov xx3,eax
+ 0000024D  FF 0D 00000024 R		dec xx3
+ 00000253  A1 00000024 R		mov eax,xx3
+ 00000258  3B C8			cmp ecx,EAX
+ 0000025A  0F 85 FFFFFE71		jnz for_loop2
+ 00000260				for_finish2:
+					
+ 00000260  5A				POP edx
+ 00000261  59				POP ecx
+ 00000262  5B				POP ebx
+ 00000263  58				POP eax
+ 00000264  5F				POP edi
+ 00000265  5E				POP esi
+
+
+
+					RET
+ 00000268			mul_v ENDP
+
+				END
+Microsoft (R) Macro Assembler Version 14.28.29337.0	    05/11/21 09:35:08
+Dekster.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000050 Para	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000268 Para	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+mul_v  . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000268 Public C
+  mas  . . . . . . . . . . . . .	DWord	 bp + 00000008
+  node . . . . . . . . . . . . .	DWord	 bp + 0000000C
+  n  . . . . . . . . . . . . . .	DWord	 bp + 00000010
+  a  . . . . . . . . . . . . . .	DWord	 bp + 00000014
+  b  . . . . . . . . . . . . . .	DWord	 bp + 00000018
+  res  . . . . . . . . . . . . .	DWord	 bp + 0000001C
+  for_start  . . . . . . . . . .	L Near	 00000061 _TEXT	
+  for_loop . . . . . . . . . . .	L Near	 0000006B _TEXT	
+  end_if . . . . . . . . . . . .	L Near	 000000B9 _TEXT	
+  for_finish . . . . . . . . . .	L Near	 000000CC _TEXT	
+  for_start2 . . . . . . . . . .	L Near	 000000CC _TEXT	
+  for_loop2  . . . . . . . . . .	L Near	 000000D1 _TEXT	
+  for_start3 . . . . . . . . . .	L Near	 000000DB _TEXT	
+  for_loop3  . . . . . . . . . .	L Near	 000000E5 _TEXT	
+  end_if3  . . . . . . . . . . .	L Near	 0000014D _TEXT	
+  for_finish3  . . . . . . . . .	L Near	 00000160 _TEXT	
+  for_start4 . . . . . . . . . .	L Near	 00000160 _TEXT	
+  for_loop4  . . . . . . . . . .	L Near	 0000016A _TEXT	
+  end_if4  . . . . . . . . . . .	L Near	 0000022B _TEXT	
+  for_finish4  . . . . . . . . .	L Near	 00000242 _TEXT	
+  for_finish2  . . . . . . . . .	L Near	 00000260 _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000001h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+InPoint  . . . . . . . . . . . .	DWord	 00000030 _DATA	
+MatrixCountKD  . . . . . . . . .	DWord	 00000038 _DATA	
+MatrixCount  . . . . . . . . . .	DWord	 00000034 _DATA	
+bigNum . . . . . . . . . . . . .	DWord	 00000044 _DATA	
+blb  . . . . . . . . . . . . . .	DWord	 00000048 _DATA	
+ecx2 . . . . . . . . . . . . . .	DWord	 0000004C _DATA	
+fromPoint  . . . . . . . . . . .	DWord	 00000018 _DATA	
+indexMin . . . . . . . . . . . .	DWord	 00000040 _DATA	
+mass2  . . . . . . . . . . . . .	DWord	 00000004 _DATA	
+massNode2  . . . . . . . . . . .	DWord	 00000014 _DATA	
+massNode . . . . . . . . . . . .	DWord	 00000010 _DATA	
+massRes2 . . . . . . . . . . . .	DWord	 0000000C _DATA	
+massRes  . . . . . . . . . . . .	DWord	 00000008 _DATA	
+mass . . . . . . . . . . . . . .	DWord	 00000000 _DATA	
+minMas . . . . . . . . . . . . .	DWord	 0000003C _DATA	
+xx2  . . . . . . . . . . . . . .	DWord	 00000020 _DATA	
+xx3  . . . . . . . . . . . . . .	DWord	 00000024 _DATA	
+xx4  . . . . . . . . . . . . . .	DWord	 00000028 _DATA	
+xx5  . . . . . . . . . . . . . .	DWord	 0000002C _DATA	
+xx . . . . . . . . . . . . . . .	DWord	 0000001C _DATA	
+
+	   0 Warnings
+	   0 Errors

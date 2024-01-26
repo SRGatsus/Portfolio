@@ -1,0 +1,167 @@
+object Form1: TForm1
+  Left = 235
+  Height = 762
+  Top = 165
+  Width = 966
+  Caption = 'Текстовый Редактор'
+  ClientHeight = 742
+  ClientWidth = 966
+  Menu = MainMenu1
+  OnActivate = FormActivate
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  LCLVersion = '2.0.8.0'
+  object Memo1: TMemo
+    AnchorSideLeft.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 0
+    Height = 692
+    Top = 0
+    Width = 966
+    Align = alClient
+    DoubleBuffered = True
+    OnChange = Memo1Change
+    ParentDoubleBuffered = False
+    TabOrder = 0
+  end
+  object GroupBox1: TGroupBox
+    AnchorSideTop.Side = asrBottom
+    Left = 0
+    Height = 50
+    Top = 692
+    Width = 966
+    Align = alBottom
+    ClientHeight = 30
+    ClientWidth = 962
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 624
+      Height = 15
+      Top = 8
+      Width = 33
+      Caption = 'Строк'
+      ParentColor = False
+      OnClick = Label1Click
+    end
+    object Label2: TLabel
+      Left = 776
+      Height = 15
+      Top = 9
+      Width = 57
+      BorderSpacing.Left = 60
+      Caption = 'Символов'
+      ParentColor = False
+    end
+    object Edit1: TEdit
+      Left = 680
+      Height = 15
+      Top = 8
+      Width = 80
+      BorderStyle = bsNone
+      Color = clMenu
+      ParentShowHint = False
+      ReadOnly = True
+      TabOrder = 0
+      Text = '0'
+    end
+    object Edit2: TEdit
+      Left = 848
+      Height = 15
+      Top = 8
+      Width = 80
+      BorderStyle = bsNone
+      Color = clMenu
+      ReadOnly = True
+      TabOrder = 1
+      Text = '0'
+    end
+  end
+  object MainMenu1: TMainMenu
+    left = 24
+    top = 32
+    object MenuItem1: TMenuItem
+      Caption = 'Файл'
+      OnClick = MenuItem1Click
+      object Menu1Sozdat: TMenuItem
+        Caption = 'Создать'
+        ShortCut = 16462
+        OnClick = Menu1SozdatClick
+      end
+      object Menu1Otkr: TMenuItem
+        Caption = 'Открыть'
+        ShortCut = 16463
+        OnClick = Menu1OtkrClick
+      end
+      object Menu1Soxran: TMenuItem
+        Caption = 'Сохранить'
+        ShortCut = 16467
+        OnClick = Menu1SoxranClick
+      end
+      object Menu1SoxranKak: TMenuItem
+        Caption = 'Сохранить как'
+        OnClick = Menu1SoxranKakClick
+      end
+      object Menu1pejat: TMenuItem
+        Caption = 'Печать'
+        ShortCut = 16464
+        OnClick = Menu1pejatClick
+      end
+      object Menu1Exit: TMenuItem
+        Caption = 'Выход'
+        OnClick = Menu1ExitClick
+      end
+    end
+    object MenuPravka: TMenuItem
+      Caption = 'Правка'
+      object Menu2Vurez: TMenuItem
+        Caption = 'Вырезать'
+        ShortCut = 16472
+        OnClick = Menu2VurezClick
+      end
+      object Menu2Cop: TMenuItem
+        Caption = 'Копировать'
+        ShortCut = 16451
+        OnClick = Menu2CopClick
+      end
+      object Menu2Vstav: TMenuItem
+        Caption = 'Вставить'
+        ShortCut = 16470
+        OnClick = Menu2VstavClick
+      end
+    end
+    object MenuFormat: TMenuItem
+      Caption = 'Формат'
+      object Menu3_1: TMenuItem
+        Caption = 'Перенос по словам'
+        OnClick = Menu3_1Click
+      end
+      object Menu3_2: TMenuItem
+        Caption = 'Шрифт'
+        OnClick = Menu3_2Click
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'Техтовый документ|*.txt|Все|*.*'
+    left = 104
+    top = 32
+  end
+  object SaveDialog1: TSaveDialog
+    Filter = 'Текстовый документ|*.txt|Все|*.*'
+    left = 176
+    top = 32
+  end
+  object FontDialog1: TFontDialog
+    MinFontSize = 0
+    MaxFontSize = 0
+    left = 232
+    top = 32
+  end
+  object PrintDialog1: TPrintDialog
+    left = 296
+    top = 32
+  end
+end

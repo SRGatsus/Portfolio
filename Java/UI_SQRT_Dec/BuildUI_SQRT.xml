@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="exampleProject" default="finalize">
+  <description>
+    This is a simple example using Ant
+  </description>
+  <target name="makeJAR" depends="compile, init">
+    <jar destfile="UI_SQRT_Dec.jar" basedir="tmp">
+      <manifest>
+        <attribute name="Main-class" value="Main"/>
+      </manifest>
+    </jar>
+  </target>
+  <target name="compile" depends="init">
+    <javac srcdir="src" destdir="tmp" debug="true" includes="Main.java"/>
+  </target>
+  <target name="init">
+    <mkdir dir="tmp"/>
+    <tstamp/>
+  </target>
+  <target name="finalize" depends="makeJAR">
+    <delete dir="tmp"/>
+  </target>
+</project>

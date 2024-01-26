@@ -1,0 +1,22 @@
+-Werror=implicit-int -Werror=implicit-function-declaration -Werror=strict-prototypes -Werror=return-type
+-Wall
+-Wextra
+-Wdouble-promotion
+-Wformat-nonliteral
+-Wformat-security
+-Winit-self
+-Wstrict-aliasing
+-Wfloat-equal
+-Wundef 
+-Wshadow
+-Wunsafe-loop-optimizations
+-Wpointer-arith
+-Wcast-align
+-Wwrite-strings
+-Wconversion
+-Wsign-compare
+-Wlogical-op
+-Waggregate-return
+-Winline
+-Wstrict-overflow=5
+-Wpadded

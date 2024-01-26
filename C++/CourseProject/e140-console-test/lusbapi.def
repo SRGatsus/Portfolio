@@ -1,0 +1,4 @@
+LIBRARY Lusbapi.dll
+EXPORTS
+CreateLInstance@4
+GetDllVersion@0

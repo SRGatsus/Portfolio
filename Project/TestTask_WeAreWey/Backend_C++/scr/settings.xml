@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Server>
+	<Settings>
+		<Port Value ="8082">Порт подключение</Port>
+		<UserNameBD Value="postgres" >Имя пользователя для подключение к Базе данных</UserNameBD>
+		<PasswordBD Value="admin" >Пароль для подключение к Базе данных</PasswordBD>
+		<PortBD Value="5432" >Порт на котором стоит Базе данных</PortBD>
+		<HostBD Value="localhost" >Имя хоста  на котором стоит Базе данных</HostBD>
+		<NameBD Value="TestTask" >Имя базы данных</NameBD>
+		<ExistenceTables Value="FALSE" >Существуют ли таблицы в базе данных</ExistenceTables>
+	</Settings>
+</Server>

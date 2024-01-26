@@ -1,0 +1,74 @@
+.container-input-count {
+    position: relative;
+    width: 80px;
+    height: 50px;
+    border-radius: 40px;
+    border: 2px solid rgba(255, 255, 255, 1);
+    transition: 0.5s;
+}
+
+.container-input-count:hover {
+    width: 120px;
+    border: 2px solid rgba(217, 79, 92, 1);
+}
+
+.container-input-count .next {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    z-index: 1;
+    transform: translateY(-50%) rotate(135deg);
+    cursor: pointer;
+    opacity: 0;
+    transform: 0.5s;
+}
+
+.container-input-count:hover .next {
+    opacity: 1;
+    right: 20px;
+}
+
+.container-input-count .next:hover {
+    border-top-color: #d94f5c;
+    border-left-color: #d94f5c;
+}
+
+.container-input-count .prev {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    z-index: 1;
+    transform: translateY(-50%) rotate(315deg);
+    cursor: pointer;
+    opacity: 0;
+    transform: 0.5s;
+}
+
+.container-input-count:hover .prev {
+    opacity: 1;
+    left: 20px;
+}
+
+.container-input-count .prev:hover {
+    border-top-color: #d94f5c;
+    border-left-color: #d94f5c;
+}
+
+.container-input-count .box span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 46px;
+}

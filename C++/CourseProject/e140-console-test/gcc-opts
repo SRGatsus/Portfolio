@@ -1,0 +1,1 @@
+-static-libstdc++ -static-libgcc -O2 -W -Wundef -Wall -Werror=strict-prototypes -Werror=implicit-function-declaration

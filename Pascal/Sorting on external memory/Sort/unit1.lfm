@@ -1,0 +1,78 @@
+object Form1: TForm1
+  Left = 527
+  Height = 621
+  Top = 326
+  Width = 794
+  Caption = 'Сортировка '
+  ClientHeight = 621
+  ClientWidth = 794
+  LCLVersion = '2.0.8.0'
+  object Memo1: TMemo
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = sortBtn
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 15
+    Height = 462
+    Top = 144
+    Width = 764
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Around = 15
+    TabOrder = 0
+  end
+  object srcBtn: TButton
+    Left = 40
+    Height = 25
+    Top = 24
+    Width = 155
+    Caption = 'Исходник'
+    OnClick = srcBtnClick
+    TabOrder = 1
+  end
+  object outBtn: TButton
+    Left = 40
+    Height = 25
+    Top = 104
+    Width = 155
+    Caption = 'Отсортированный файл'
+    OnClick = outBtnClick
+    TabOrder = 2
+  end
+  object sortBtn: TButton
+    Left = 528
+    Height = 105
+    Top = 24
+    Width = 251
+    Caption = 'СОРТИРОВАТЬ)))'
+    OnClick = sortBtnClick
+    TabOrder = 3
+  end
+  object Label1: TLabel
+    Left = 40
+    Height = 1
+    Top = 56
+    Width = 1
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 40
+    Height = 1
+    Top = 80
+    Width = 1
+    ParentColor = False
+  end
+  object srcFile: TOpenDialog
+    OnCanClose = srcFileCanClose
+    Filter = 'Текстовый редактор|*.txt|все|*.*'
+    left = 368
+    top = 24
+  end
+  object outFile: TOpenDialog
+    OnCanClose = outFileCanClose
+    left = 432
+    top = 24
+  end
+end

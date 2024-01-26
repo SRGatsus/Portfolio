@@ -1,0 +1,62 @@
+  CourseProject.About.resources - Embedded, ContainedInManifestFile, 
+  CourseProject.Mainh.resources - Embedded, ContainedInManifestFile, 
+  CourseProject.Settings.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly CourseProject, Version=0.0.*, Culture=Инвариантный язык (Инвариантная страна): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class CourseProject.About: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CourseProject.Mainh: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 rate : Public
+    Int32 factorY : Public
+    Int32 factorX : Public
+    Int32 ms : Public
+    System.String saveFile : Public
+    System.Collections.Generic.List`1[System.Int32] array_X IsByValue : Public, InitOnly
+    System.Collections.Generic.List`1[System.Int32] array_Y IsByValue : Public, InitOnly
+    Void* hReadThread : Public
+    UInt32* ReadTid : Public
+    UInt32 DataStep IsLong : Public
+    UInt16 NDataBlock IsConst : Public
+    Int16* ReadBuffer : Public
+    Boolean IsReadThreadComplete : Public
+    UInt16 ReadThreadErrorNumber : Public
+    UInt32 Counter IsLong : Public
+    UInt32 OldCounter IsLong : Public
+    Void* hFile : Public
+    System.String mesError : Public
+    UInt16 MaxVirtualSoltsQuantity IsConst : Public
+    TLoadDll* pLoadDll : Public
+    UInt32 DllVersion IsLong : Public
+    ILE140* pModule : Public
+    Void* ModuleHandle : Public
+    SByte* ModuleName : Public
+    Byte* UsbSpeed : Public
+    MODULE_DESCRIPTION_E140* ModuleDescription : Public
+    ADC_PARS_E140* ap : Public
+    Double AdcRate IsConst : Public
+    UInt16 InputRangeIndex IsConst : Public
+Class CourseProject.Settings: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    CourseProject.Mainh form : Public
+    Boolean NotEnableSearch : Public

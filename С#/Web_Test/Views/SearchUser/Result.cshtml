@@ -1,0 +1,38 @@
+﻿@model MockSearchUser
+@{
+    Layout = "_Layout";
+}
+<meta name="viewport" content="width=device-width" />
+<title>Результат поиска</title>
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            @{if (ViewBag.data.SearchUser(ViewBag.name))
+                {
+
+
+                        <h3 class="fw-light"> Пользователь @ViewBag.name есть</h3>
+
+
+                    <p class="lead text-muted text-start">SID: @ViewBag.data.user.GetSID()</p>
+                    <p class="lead text-muted text-start">Полное имя: @ViewBag.data.user.GetFullName()</p>
+                    <p class="lead text-muted text-start">Имя: @ViewBag.data.user.GetName()</p>
+                    <p class="lead text-muted text-start">Путь: @ViewBag.data.user.GetCaption()</p>
+                    <p class="lead text-muted text-start">Домен: @ViewBag.data.user.GetDomain()</p>
+                    <p class="lead text-muted text-start">Описание: @ViewBag.data.user.GetDescription()</p>
+                    <p class="lead text-muted text-start">Статус: @ViewBag.data.user.GetStatus()</p>
+                }
+                else
+                {
+                    <h3 class="fw-light"> Пользователь @ViewBag.name нет </h3>
+                }
+            }
+
+            <p>
+                <a asp-controller="Home" asp-action ="Index" class="btn btn-primary my-2 btn-lg">Назад</a>
+            </p>
+        </div>
+    </div>
+</section>
+}
+

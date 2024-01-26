@@ -1,0 +1,72 @@
+object Form1: TForm1
+  Left = 518
+  Height = 239
+  Top = 266
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 239
+  ClientWidth = 320
+  LCLVersion = '2.0.8.0'
+  object Button1: TButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    Left = 15
+    Height = 25
+    Top = 40
+    Width = 128
+    BorderSpacing.Left = 15
+    BorderSpacing.Top = 40
+    Caption = 'Выбрать файл'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Button2: TButton
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 192
+    Height = 25
+    Top = 40
+    Width = 113
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Top = 40
+    BorderSpacing.Right = 15
+    Caption = 'Проверить'
+    OnClick = Button2Click
+    TabOrder = 1
+  end
+  object labelPath: TLabel
+    Left = 15
+    Height = 1
+    Top = 104
+    Width = 1
+    ParentColor = False
+  end
+  object labelResult: TLabel
+    Left = 88
+    Height = 1
+    Top = 152
+    Width = 1
+    ParentColor = False
+  end
+  object Label1: TLabel
+    Left = 15
+    Height = 15
+    Top = 80
+    Width = 76
+    Caption = 'Путь к файлу:'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 15
+    Height = 15
+    Top = 152
+    Width = 39
+    Caption = 'Статус:'
+    ParentColor = False
+  end
+  object OpenDialog: TOpenDialog
+    OnCanClose = OpenDialogCanClose
+    left = 104
+  end
+end

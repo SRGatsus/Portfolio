@@ -1,0 +1,4 @@
+.container .row .col{
+    min-height: 200px !important;
+    height: 100%;
+}

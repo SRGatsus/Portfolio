@@ -1,0 +1,20 @@
+﻿
+@model Search
+
+<main class="form-signin w-100 m-auto">
+    <form asp-route="Checkout" method="post">
+        <img class="mb-4" src="~/img/user_icon.png" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 fw-normal">@ViewBag.Title</h1>
+
+        <div class="form-floating mb-3">
+            <input asp-for="name" class="form-control" id="username">
+            <label>Имя пользователя</label>
+
+        </div>
+        <div class="form-floating mb-3">
+            <span asp-validation-for="name" class="text-danger"></span>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" value="Проверить">Проверить</button>
+        <p class="mt-5 mb-3 text-muted">© 2022</p>
+    </form>
+</main>

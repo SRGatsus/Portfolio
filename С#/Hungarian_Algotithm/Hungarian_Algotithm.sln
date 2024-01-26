@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hungarian_Algotithm", "Hungarian_Algotithm.csproj", "{12D0BA20-E9CC-4520-87DA-73FAD1FE0D0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12D0BA20-E9CC-4520-87DA-73FAD1FE0D0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12D0BA20-E9CC-4520-87DA-73FAD1FE0D0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12D0BA20-E9CC-4520-87DA-73FAD1FE0D0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12D0BA20-E9CC-4520-87DA-73FAD1FE0D0D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A15F078-E956-4423-BF97-FE13DF89666C}
+	EndGlobalSection
+EndGlobal
